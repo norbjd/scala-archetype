@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+                      name="${artifactId}">
+    <requiredProperties>
+        <requiredProperty key="name">
+            <defaultValue>${artifactId.toLowerCase()}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="description">
+            <defaultValue>${artifactId.toLowerCase()}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="scalaVersion">
+            <validationRegex>(2\.10\.1|2\.10\.2|2\.10\.3|2\.10\.4|2\.10\.5|2\.10\.6|2\.10\.7|2\.11\.0|2\.11\.1|2\.11\.11|2\.11\.12|2\.11\.2|2\.11\.4|2\.11\.5|2\.11\.6|2\.11\.7|2\.11\.8|2\.12\.0|2\.12\.1|2\.12\.2|2\.12\.3|2\.12\.4|2\.12\.5|2\.12\.6)</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="author" />
+        <requiredProperty key="scmUrl">
+            <defaultValue>https://github.com/${author}/${artifactId}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="organizationName">
+            <defaultValue>${author}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="organizationUrl">
+            <defaultValue>https://github.com/${author}</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+
+    <fileSets>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/main/scala</directory>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/test/scala</directory>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/it/scala</directory>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>src/site</directory>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>
